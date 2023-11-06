@@ -20,6 +20,10 @@ OsLinux = function()
 			return "OK"
 		end
 	end
+	
+	ls = function(Path)
+		
+	end
 end
 
 
