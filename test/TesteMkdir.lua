@@ -1,4 +1,4 @@
-oslinux = require("init")
+oslinux = require("../main")
 
 
 
@@ -8,9 +8,13 @@ run = function()
 	if comands then 
 		print(comands, " TESTEMKDIR")
 		return "OK"
+	else
+		return "ERROR"
 	end
 	
 end
+
+run()
 
 
 

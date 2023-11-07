@@ -1,4 +1,4 @@
-oslinux = require("init")
+oslinux = require("../main")
 
 run = function() 
 	comands = OsLinux()
@@ -6,7 +6,11 @@ run = function()
 	if comands then 
 		print(comands, " TESTETOUCH")
 		return "OK"
+	else
+		return "ERROR"
 	end
 	
 end
+
+run()
 
