@@ -3,9 +3,8 @@ oslinux = require("../main")
 
 
 run = function() 
-	comands = OsLinux()
 	comands = mkdir("TesteMkdir")
-	if comands then 
+	if comands == "OK" then 
 		print(comands, " TESTEMKDIR")
 		return "OK"
 	else

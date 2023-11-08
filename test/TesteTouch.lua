@@ -1,9 +1,8 @@
 oslinux = require("../main")
 
 run = function() 
-	comands = OsLinux()
 	comands = touch("/home/home/Documentos/Projeto/lua-os-linux/test/TesteTouch.txt")
-	if comands then 
+	if comands == "OK" then 
 		print(comands, " TESTETOUCH")
 		return "OK"
 	else

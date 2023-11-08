@@ -1,10 +1,7 @@
 local oslinux = require("../main")
-
-
 local file = "test/oslinux-test-rm.txt"
 
 run = function(file) 
-	comands = OsLinux()
 	comands = touch(file)
 	comands = rmfile(file)
 	if comands == "OK" then 

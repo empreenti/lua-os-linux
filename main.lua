@@ -1,7 +1,5 @@
 os = require("os")
 io = require("io")
-
-OsLinux = function()
 	 touch = function(Path)
 		local complete = "touch " .. Path
 		local comandtouch = os.execute(complete)
@@ -47,29 +45,20 @@ OsLinux = function()
 		elseif runtouch == "OK" then
 			local ls = os.execute(complete)
 			
-			if ls == false then
+			if ls == true then
+				local file = io.open(PathFile)
+				local result = file:read("*a")
+				file:close()
+				
+				save = {}
+				
+				for token in string.gmatch(result, "[^%s]+") do
+				   table.insert(save, token)
+				end
+				return save
+			else
 				io.write("[ERROR] LS COMMAND NOT AVAILABLE OR INCORRECT PATH\n")
 				return "ERROR"
-			else
-				local save = {}
-				local file = io.open(PathFile)
-				local pos = 1
-				for i in file.lines(100) do
-					table.insert(save, pos, i)
-					pos = pos + 1
-				end
-				file:close()
-				local rm = rmfile(PathFile)
-				
-				if rm == "ERROR" then
-					io.write("[ERROR] RM COMMAND NOT AVAILABLE OR INCORRECT PATH\n")
-					return "ERROR"
-				else
-					return {save, "OK"}
-				end
 			end
 		end
 	end
-end
-
-
